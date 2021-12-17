@@ -1,4 +1,4 @@
-const periodsCtrl = require('../../controller/periods');
+// const periodsCtrl = require('../../controller/periods');
 
 // keep track of which month we're on
 let nav = 0;
@@ -100,7 +100,7 @@ function initButtons() {
     nav--;
     loadCalendar();
   })
-  document.getElementById('saveButton').addEventListener('click', periodsCtrl.create);
+  // document.getElementById('saveButton').addEventListener('click', periodsCtrl.create);
   document.getElementById('cancelButton').addEventListener('click', closeModal);
 }
 
