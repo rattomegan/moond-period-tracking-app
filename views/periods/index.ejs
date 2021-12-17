@@ -6,7 +6,7 @@
   <table>
     <h1>Periods</h1>
     <tr>
-      <th>Name</th>
+      <th>Phase</th>
       <th>Date</th>
       <th></th>
       <th></th>
@@ -14,7 +14,7 @@
     <tbody>
       <% periods.forEach(function(p) { %>
       <tr>
-        <td><%= p.name %></td>
+        <td><%= p.phase %></td>
         <td><%= p.periodDate %></td>
         <td><a href="/periods/<%= p._id %>">Show</a></td>
         <form action="/periods/<%= p._id %>?_method=DELETE" method="POST">

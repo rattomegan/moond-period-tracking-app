@@ -30,7 +30,7 @@ const noteSchema = new Schema({
 
 const periodSchema  = new Schema({
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
-  name: {
+  phase: {
     type: String,
     enum: ['Bleeding', 'Ovulating',],
     default: 'Bleeding'
