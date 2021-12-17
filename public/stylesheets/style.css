@@ -30,7 +30,7 @@ nav > * {
 }
 
 /* ---------calendar css to test-------- */
-body {
+#calendar-container {
   display: flex;
   margin-top: 50px;
   justify-content: center;
