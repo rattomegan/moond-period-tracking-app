@@ -1,7 +1,5 @@
 <%- include('../partials/header') %>
 
-<p>This page will show an overview of the calendar and moon phase of the day.</p>
-
 <a href="/periods/new">Add Event</a>
 
 <section class="period-table">
@@ -12,15 +10,16 @@
       <th>Date</th>
       <th></th>
     </tr>
-    <tr>
+    <tbody>
       <% periods.forEach(function(p) { %>
+      <tr>
         <td><%= p.name %></td>
         <td><%= p.periodDate %></td>
-        <td></td>
-
+        <td><a href="/periods/<%= p._id %>">Show</a></td>
+      </tr>
       <% }) %>
 
-    </tr>
+      </tbody>
   </table>
 
 </section>

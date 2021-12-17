@@ -13,4 +13,9 @@ router.get('/new', periodsCtrl.new);
 // POST "/periods" - Create Route
 router.post('/', periodsCtrl.create);
 
+// GET "/periods/:id" - Show Route
+router.get('/:id', periodsCtrl.show);
+
+// DELETE "/periods/:id" - Delete Route
+
 module.exports = router;

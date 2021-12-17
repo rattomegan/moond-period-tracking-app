@@ -5,6 +5,7 @@ module.exports = {
   index,
   new: newPeriod,
   create,
+  show
 }
 
 function index(req, res) {
@@ -18,11 +19,17 @@ function newPeriod(req, res) {
 };
 
 function create(req, res ) {
+  if (req.body.periodDate === '') delete req.body.periodDate;
   const period = new Period(req.body);
   period.save(function(err) {
     if (err) return res.redirect('/periods/new');
     console.log(period);
     res.redirect('/periods');
   });
+};
 
+function show(req,res) {
+  Period.findById(req.params.id, function(err, period) {
+    res.render('periods/show', { period });
+  })
 }
