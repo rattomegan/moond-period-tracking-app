@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<p>this is a new form page</p>
+<form class="new-event-form" action="/periods" method="POST">
+  <label>Period Name</label>
+  <input name="name">
+  <input type="datetime-local" name="periodDate">
+  <input class="submit-event" type="submit" value="Add Period">
+</form>
+
+<%- include('../partials/footer') %>
