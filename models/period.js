@@ -32,7 +32,8 @@ const periodSchema  = new Schema({
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
   name: {
     type: String,
-    // enum: ['Bleeding', 'Ovulating',]
+    enum: ['Bleeding', 'Ovulating',],
+    default: 'Bleeding'
   },
   periodDate: {
     type: Date,

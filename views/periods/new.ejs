@@ -3,7 +3,10 @@
 <p>this is a new form page</p>
 <form class="new-event-form" action="/periods" method="POST">
   <label>Period Name</label>
-  <input name="name">
+  <select name="name">
+    <option value="Bleeding" selected>Bleeding</option>
+    <option value="Ovulating">Ovulating</option>
+  </select>
   <input type="datetime-local" name="periodDate">
   <input class="submit-event" type="submit" value="Add Period">
 </form>
