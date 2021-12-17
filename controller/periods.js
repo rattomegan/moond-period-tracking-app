@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 const Period = require('../models/period');
 
 
@@ -9,7 +8,9 @@ module.exports = {
 }
 
 function index(req, res) {
-  res.render('periods/index');
+  Period.find({}, function(err, periods){
+    res.render('periods/index', { periods });
+  })
 };
 
 function newPeriod(req, res) {

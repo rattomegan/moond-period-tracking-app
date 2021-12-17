@@ -13,9 +13,13 @@
       <th></th>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <% periods.forEach(function(p) { %>
+        <td><%= p.name %></td>
+        <td><%= p.periodDate %></td>
+        <td></td>
+
+      <% }) %>
+
     </tr>
   </table>
 
