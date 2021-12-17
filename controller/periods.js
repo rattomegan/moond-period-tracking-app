@@ -5,11 +5,13 @@ module.exports = {
   index,
   new: newPeriod,
   create,
-  show
+  show,
+  delete: deletePeriod,
 }
 
 function index(req, res) {
   Period.find({}, function(err, periods){
+    console.log(periods)
     res.render('periods/index', { periods });
   })
 };
@@ -31,5 +33,11 @@ function create(req, res ) {
 function show(req,res) {
   Period.findById(req.params.id, function(err, period) {
     res.render('periods/show', { period });
+  })
+}
+
+function deletePeriod(req, res) {
+  Period.findOneAndDelete( {_id: req.params.id }, function(err) {
+    res.redirect('/periods');
   })
 }
