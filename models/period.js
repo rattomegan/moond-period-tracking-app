@@ -8,6 +8,9 @@ const noteSchema = new Schema({
     max: 5,
     notes: String,
   },
+  energy: {
+    type: Number
+  },
   backPain: {
     type: Number,
     min: 0,
@@ -22,7 +25,7 @@ const noteSchema = new Schema({
   },
   mood: {
     type: String,
-    enum: ['Anxious', 'Nervous', 'Tense', 'Depressed', 'Sad', 'Grief', 'Confusion', 'Iritated', 'Angry', 'Want to punch a hole in the wall'],
+    enum: ['Anxious', 'Nervous', 'Tense', 'Depressed', 'Sad', 'Lost', 'Iritated', 'Angry', 'Happy', 'Elated', 'I feel nothing.'],
     notes: String,
   },
 });
@@ -33,7 +36,7 @@ const periodSchema  = new Schema({
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
   name: {
     type: String,
-    enum: ['Bleeding', 'Ovulating',]
+    // enum: ['Bleeding', 'Ovulating',]
   },
   periodDate: {
     type: Date,
