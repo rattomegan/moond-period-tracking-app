@@ -2,7 +2,7 @@
   --main-font: 'Open Sans', sans-serif;
 }
 body {
-  padding: 50px;
+  padding: 10px;
   font-size: 14px;
   font-family: var(--main-font);
 }
@@ -11,3 +11,20 @@ a {
   color:tomato;
 }
 
+nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.push {
+  margin-left: auto;
+}
+
+nav > * {
+  padding: 5px;
+}
+
+#name {
+  font-size: 25px;
+}
