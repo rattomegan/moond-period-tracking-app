@@ -24,12 +24,22 @@
 </div>
 
 <div id="newEventModal">
-  <h2>New Event</h2>
+  <form class="new-event-form" action="/periods" method="POST">
+    <label>Period Phase</label>
+    <select name="phase">
+      <option value="Bleeding" selected>Bleeding</option>
+      <option value="Ovulating">Ovulating</option>
+    </select>
+    <input type="datetime-local" name="periodDate">
+    <button type="submit" id="saveButton">Save</button>
+    <button type="submit" id="cancelButton">Cancel</button>
+  </form>
+  <!-- <h2>New Event</h2>
 
   <input id="eventTitleInput" placeholder="Event Title" />
 
   <button id="saveButton">Save</button>
-  <button id="cancelButton">Cancel</button>
+  <button id="cancelButton">Cancel</button> -->
 </div>
 
 <div id="modalBackDrop"></div>
