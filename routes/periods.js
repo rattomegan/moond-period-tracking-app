@@ -19,5 +19,7 @@ router.get('/:id', periodsCtrl.show);
 // DELETE "/periods/:id" - Delete Route
 router.delete('/:id', periodsCtrl.delete);
 
+// PUT "/periods/:id" - Edit Route
+
 
 module.exports = router;
