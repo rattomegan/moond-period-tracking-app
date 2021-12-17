@@ -4,4 +4,7 @@ const notesCtrl = require('../controller/notes')
 
 
 // POST "/periods/:id/notes" - Create Note route
-router.post('/:id/notes', notesCtrl.create)
+router.post('/periods/:id/notes', notesCtrl.create)
+
+
+module.exports = router;

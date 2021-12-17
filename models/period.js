@@ -23,11 +23,7 @@ const noteSchema = new Schema({
     max: 1,
     notes: String,
   },
-  mood: {
-    type: String,
-    enum: ['Anxious', 'Nervous', 'Tense', 'Depressed', 'Sad', 'Lost', 'Iritated', 'Angry', 'Happy', 'Elated', 'I feel nothing.'],
-    notes: String,
-  },
+  mood: [String],
 });
 
 

@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var periodsRouter = require('./routes/periods');
+var notesRouter = require('./routes/notes');
 
 // Load env variables
 require('dotenv').config();
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/periods', periodsRouter);
+app.use('/', notesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
