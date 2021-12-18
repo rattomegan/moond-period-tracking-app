@@ -1,24 +1,33 @@
 <%- include('../partials/header') %>
 
-<a href="/periods/new">Add Event</a>
+
 <div id="calendar-container">
 <div id="container">
   <div id="header">
+    <button id="back-button">Back</button>  
     <div id="month-display"></div>
-    <div>
-      <button id="back-button">Back</button>  
-      <button id="next-button">Next</button>  
-    </div>
+    <button id="next-button">Next</button>  
+    
+    
   </div>
   
+  <!-- original html for calendar header -->
+  <!-- <div id="container">
+    <div id="header">
+      <div id="month-display"></div>
+      <div>
+        <button id="back-button">Back</button>  
+        <button id="next-button">Next</button>  
+      </div>
+  </div> -->
   <div id="weekdays">
-    <div>Sun</div>
-    <div>Mon</div>
-    <div>Tue</div>
-    <div>Wed</div>
-    <div>Thur</div>
-    <div>Fri</div>
-    <div>Sat</div>
+    <div>S</div>
+    <div>M</div>
+    <div>T</div>
+    <div>W</div>
+    <div>T</div>
+    <div>F</div>
+    <div>S</div>
   </div>
   <div id="calendar"></div>
 </div>
@@ -29,6 +38,8 @@
     <select name="phase">
       <option value="Bleeding" selected>Bleeding</option>
       <option value="Ovulating">Ovulating</option>
+      <option value="Spotting">Spotting</option>
+      <option value="No Bleeding">No Bleeding</option>
     </select>
     <input type="datetime-local" name="periodDate">
     <button type="submit" id="saveButton">Save</button>
@@ -48,7 +59,7 @@
 
 
 
-
+<a href="/periods/new">Add Event</a>
 <section class="period-table">
   <table>
     <h1>Periods</h1>

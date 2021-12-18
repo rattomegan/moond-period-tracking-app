@@ -1,4 +1,4 @@
-// const periodsCtrl = require('../../controller/periods');
+
 
 // keep track of which month we're on
 let nav = 0;
@@ -75,12 +75,24 @@ function loadCalendar() {
   for(let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement('div');
     daySquare.classList.add('day');
-
+    // sets current day string
+    const dayString = `${month + 1}/${i - paddingDays}/${year}`;
     if (i > paddingDays) {
       // this sets our starting day logic at 1
       daySquare.innerText = i - paddingDays;
+      //check if there's a day we're already on
+      const eventForDay = events.find(e => e.date === dayString)
+      // 
+      if(eventForDay) {
+        const eventDiv = document.createElement('div');
+        eventDiv.classList.add('event');
+        eventDiv.innerText = eventForDay.title;
+        daySquare.appendChild(eventDiv);
+      }
+
+
       // for now we're just logging the click. we will later write a function for this click.
-      daySquare.addEventListener('click', () => openModal(`${month + 1}/${i - paddingDays}/${year}`));
+      daySquare.addEventListener('click', () => openModal(dayString));
     } else {
       daySquare.classList.add('padding');
     }
