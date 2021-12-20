@@ -6,5 +6,9 @@ const notesCtrl = require('../controller/notes')
 // POST "/periods/:id/notes" - Create Note route
 router.post('/periods/:id/notes', notesCtrl.create)
 
+// GET "/periods/:id" - Edit Note Route
+router.get('/periods/:id/edit', notesCtrl.edit)
+
+// PUT "/periods/:id"
 
 module.exports = router;

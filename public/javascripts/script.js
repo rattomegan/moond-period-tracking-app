@@ -6,6 +6,9 @@ let nav = 0;
 let clicked = null;
 // array of event objects
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+// let events = Period.find({}, function(err, periods) {
+//   return console.log('Periods', periods);
+// })
 
 // constants - available globally and will not change
 const calendar = document.getElementById('calendar');

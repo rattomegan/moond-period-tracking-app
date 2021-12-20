@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const periodsCtrl = require('../controller/periods')
 
-// all routes are prefixed with "/cycles"
+// all routes are prefixed with "/periods"
 
 // GET "/periods" - Index Route
 router.get('/', periodsCtrl.index);

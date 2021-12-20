@@ -1,18 +1,14 @@
 <%- include('../partials/header') %>
 
 <section>
-<a href="/periods">Return to Periods overview</a>
-<h1>Detail View</h1>
-  <div>Phase: <%= period.phase %></div>
-  <div>Date: <%= period.periodDate %></div>
+<a href="/periods/<%= period._id %>">Return to Periods overview</a>
+<h1>Edit Period Notes</h1>
 
-</section>
-<% if (!period.notes.length) { %>
 <section id="notes">
   <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
     <div>day notes:</div>
     <label>cramps:</label>
-    <input type="radio" name="cramps" value="0">0 
+    <input type="radio" name="cramps" >0 
     <input type="radio" name="cramps" value="1">1 
     <input type="radio" name="cramps" value="2">2 
     <input type="radio" name="cramps" value="3">3  
@@ -36,16 +32,12 @@
     <textarea name="comments"></textarea>
     <input type="submit" value="Save Notes">
   </form>
-<% } else { %>
+
   <div>Notes for today:</div>
-  <% period.notes.forEach(function(n) { %>
-    <div>cramps: <%= n.cramps %></div>
-    <div>energy: <%= n.energy %></div>
-    <div>mood: <%= n.mood %></div>
-    <div>comments: <%= n.comments %></div>
-    <% }) %>
+
+
     <a href="/periods/<%= period._id %>/edit">Edit Notes</a>
-<% } %>
+
 </section>
 
 

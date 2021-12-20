@@ -24,6 +24,7 @@ const noteSchema = new Schema({
     notes: String,
   },
   mood: [String],
+  comments: String
 });
 
 
