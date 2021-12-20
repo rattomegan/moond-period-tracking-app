@@ -32,7 +32,8 @@ function create(req, res ) {
 
 function show(req,res) {
   Period.findById(req.params.id, function(err, period) {
-    res.render('periods/show', { period });
+    let moodOptions = ['Anxious', 'Nervous', 'Tense', 'Depressed', 'Sad', 'Lost', 'Irritated', 'Optimistic', 'Pessimistic', 'Happy', 'I feel nothing.' ]
+    res.render('periods/show', { period, moodOptions });
   })
 }
 

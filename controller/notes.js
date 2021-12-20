@@ -9,7 +9,7 @@ function create(req, res) {
   Period.findById(req.params.id, function(err, period) {
     period.notes.push(req.body);
     period.save(function(err) {
-      console.log(period);
+      console.log(period.notes);
       res.redirect(`/periods/${period._id}`);
     })
   });
