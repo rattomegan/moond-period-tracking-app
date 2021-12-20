@@ -6,7 +6,6 @@ const noteSchema = new Schema({
     type: Number,
     min: 0,
     max: 5,
-    notes: String,
   },
   energy: {
     type: Number
@@ -15,13 +14,11 @@ const noteSchema = new Schema({
     type: Number,
     min: 0,
     max: 5,
-    notes: String,
   },
   appetite: {
     type: Number,
     min: 0,
     max: 1,
-    notes: String,
   },
   mood: [String],
   comments: String

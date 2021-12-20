@@ -7,7 +7,7 @@ const notesCtrl = require('../controller/notes')
 router.post('/periods/:id/notes', notesCtrl.create)
 
 // GET "/periods/:id" - Edit Note Route
-router.get('/periods/:id/edit', notesCtrl.edit)
+router.get('/notes/:id/edit', notesCtrl.edit)
 
 // PUT "/periods/:id" - Update Route
 router.put('/notes/:id', notesCtrl.update)
