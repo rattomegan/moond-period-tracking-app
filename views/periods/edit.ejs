@@ -17,19 +17,13 @@
     
     no energy<input type="range" min="0" max="5" name="energy">high energy
     <div>mood</div>
-    <input type="checkbox" name="mood" value="Anxious">Anxious
-    <input type="checkbox" name="mood" value="Nervous">Nervous
-    <input type="checkbox" name="mood" value="Tense">Tense
-    <input type="checkbox" name="mood" value="Depressed">Depressed
-    <input type="checkbox" name="mood" value="Sad">Sad
-    <input type="checkbox" name="mood" value="Lost">Lost
-    <input type="checkbox" name="mood" value="Iritated">Iritated
-    <input type="checkbox" name="mood" value="Happy">Happy
-    <input type="checkbox" name="mood" value="Optimistic">Elated
-    <input type="checkbox" name="mood" value="Pessimistic">Elated
-    <input type="checkbox" name="mood" value="Elated">Elated
-    <input type="checkbox" name="mood" value="I feel nothing.">I feel nothing. <br>
-    <textarea name="comments"></textarea>
+    <% moodOptions.forEach(function(m) { %>
+      <% if (moodsSelected.includes(m)) { %>
+        <input type="checkbox" name="mood" value="<%= m %>" checked><%= m %>
+      <% } else { %>
+      <input type="checkbox" name="mood" value="<%= m %>"><%= m %>
+      <% } %>
+    <% }) %> <br>
     <input type="submit" value="Save Notes">
   </form>
 

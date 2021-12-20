@@ -18,6 +18,9 @@ function create(req, res) {
 
 function edit(req, res) {
   Period.findById(req.params.id, function(err, period) {
-    res.render('periods/edit', { period });
+    let moodOptions = ['Anxious', 'Nervous', 'Tense', 'Depressed', 'Sad', 'Lost', 'Irritated', 'Optimistic', 'Pessimistic', 'Happy', 'I feel nothing.' ]
+    let moodsSelected = period.notes[0].mood
+    console.log(period.notes[0].mood)
+    res.render('periods/edit', { period, moodOptions, moodsSelected });
   });
 };
