@@ -5,7 +5,7 @@
 <h1>Edit Period Notes</h1>
 
 <section id="notes">
-  <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
+  <form id="note-form" action="/notes/<%= notes._id %>?_method=PUT" method="POST">
     <div>day notes:</div>
     <label>cramps:</label>
     <input type="radio" name="cramps" >0 
@@ -27,10 +27,6 @@
     <input type="submit" value="Save Notes">
   </form>
 
-  <div>Notes for today:</div>
-
-
-    <a href="/periods/<%= period._id %>/edit">Edit Notes</a>
 
 </section>
 

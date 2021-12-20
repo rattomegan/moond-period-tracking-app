@@ -9,6 +9,7 @@ router.post('/periods/:id/notes', notesCtrl.create)
 // GET "/periods/:id" - Edit Note Route
 router.get('/periods/:id/edit', notesCtrl.edit)
 
-// PUT "/periods/:id"
+// PUT "/periods/:id" - Update Route
+router.put('/notes/:id', notesCtrl.update)
 
 module.exports = router;
