@@ -39,7 +39,7 @@ async function getCalendar(req, res) {
   let month = parseInt(req.params.month);
   let year = parseInt(req.params.year);
   const firstDayOfMonth = new Date(year, month - 1, 1);
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInMonth = new Date(year, month, 0).getDate();
   const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
     weekday: "long", // The comma and the space provided here will be used later to split the date
     year: "numeric",
@@ -53,6 +53,7 @@ async function getCalendar(req, res) {
       $lt: new Date(year, month - 1, daysInMonth),
     },
   });
+  console.log(paddingDays, daysInMonth, monthName, month)
   res.render('calendar', {periods, monthName, month, year, firstDayOfMonth, daysInMonth, paddingDays});
 }
 

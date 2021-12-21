@@ -30,6 +30,7 @@ function update(req, res) {
   Period.findOne({'notes._id': req.params.id}, function(err, period) {
     let notesSubdoc = period.notes.id(req.params.id)
     console.log(req.body);
+    notesSubdoc.flow = req.body.flow;
     notesSubdoc.cramps = req.body.cramps;
     notesSubdoc.backPain = req.body.backPain;
     notesSubdoc.energy = req.body.energy;

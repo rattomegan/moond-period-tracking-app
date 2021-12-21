@@ -1,58 +1,60 @@
 <%- include('./partials/header') %>
+<div id="calendar-container">
+  <div id="container">
+    <div id="header">       
+        <% if (month === 1) { %>
+          <a href="/periods/<%= 12 %>/<%= year - 1 %>"><button id="back-button">Back</button></a>
+        <% } else { %>
+          <a href="/periods/<%= month - 1 %>/<%= year %>"><button id="back-button">Back</button></a>
+        <% } %>
 
-<div id="container">
-  <div id="header">
-    <div id="month-display"><%= monthName %> - <%= year %></div>
-    <div>
-      <% if (month === 1) { %>
-        <a href="/periods/<%= 12 %>/<%= year - 1 %>"><button id="back-button">Back</button></a>
-      <% } else { %>
-        <a href="/periods/<%= month - 1 %>/<%= year %>"><button id="back-button">Back</button></a>
-      <% } %>
-      <% if (month === 12) { %>
-        <a href="/periods/<%= 1 %>/<%= year + 1 %>"><button id="back-button">Next</button></a>
-      <% } else { %>
-        <a href="/periods/<%= month + 1 %>/<%= year %>"><button id="back-button">Next</button></a>
-      <% } %>
+        <div id="month-display"><%= monthName %> - <%= year %></div>
+       
+        <% if (month === 12) { %>
+          <a href="/periods/<%= 1 %>/<%= year + 1 %>"><button id="back-button">Next</button></a>
+        <% } else { %>
+          <a href="/periods/<%= month + 1 %>/<%= year %>"><button id="back-button">Next</button></a>
+        <% } %>
     </div>
-  </div>
 
-  <div id="weekdays">
-    <div>Sun</div>
-    <div>Mon</div>
-    <div>Tue</div>
-    <div>Wed</div>
-    <div>Thur</div>
-    <div>Fri</div>
-    <div>Sat</div>
-  </div>
-  <div id="calendar">
-    <% for(let i=0; i < paddingDays; i++) { %>
-      <div class="padding"></div>
-    <% }; %>
-    <% for(let i=1; i <= daysInMonth - paddingDays; i++) { %>
-      <% let p = periods.find(p => p.periodDate.getDate() === i) %>
-      <% if (p) { %>
-        <a href="/periods/<%= p._id %>">
-          <div class="red">
+    <div id="weekdays">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thur</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+    <div id="calendar">
+      <% for(let i=0; i < paddingDays; i++) { %>
+        <div class="padding"></div>
+      <% }; %>
+      <!-- I cut ou the padding days from this for loop "+ paddingDays"-->
+      <% for(let i = 1; i <= daysInMonth ; i++) { %>
+        <% let p = periods.find(p => p.periodDate.getDate() === i) %>
+        <% if (p) { %>
+          <div class="day">
+            <%= i %>
+            <a href="/periods/<%= p._id %>">
+              <%= p.phase %>
+            </a>
+            </div>
+        <% } else { %>
+          <div class="day">
             <%= i %>
           </div>
-        </a>
-      <% } else { %>
-        <div class="day">
-          <%= i %>
-        </div>
-      <% } %>
-    <% }; %>
+        <% } %>
+      <% }; %>
+    </div>
   </div>
 </div>
-
 <div id="newEventModal">
 
 </div>
 
 <div id="modalBackDrop"></div>
-
+<a href="/periods/new">Add Event</a>
 <section class="period-table">
   <table>
     <h1><%= monthName %> Overview</h1>
@@ -63,6 +65,7 @@
       <th></th>
     </tr>
     <tbody>
+      <% periods.sort((a, b) => a.periodDate - b.periodDate); %>
       <% periods.forEach(function(p) { %>
       <tr>
         <td><%= p.periodDate.toLocaleDateString('en-US', {timeZone: 'UTC'}) %></td>
