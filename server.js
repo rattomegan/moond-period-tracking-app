@@ -40,6 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(function (req, res, next) {
   res.locals.user = req.user;
+  res.locals.moodOptions = ['Anxious', 'Nervous', 'Tense', 'Depressed', 'Sad', 'Lost', 'Irritated', 'Optimistic', 'Pessimistic', 'Happy', 'I feel nothing.' ]
   next();
 });
 app.use(methodOverride('_method'));

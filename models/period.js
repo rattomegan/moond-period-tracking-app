@@ -6,6 +6,7 @@ const noteSchema = new Schema({
     type: Number,
     min: 0,
     max: 5,
+    default: 5
   },
   backPain: {
     type: Number,
@@ -18,9 +19,12 @@ const noteSchema = new Schema({
   appetite: {
     type: Number,
     min: 0,
-    max: 1,
+    max: 5,
   },
-  mood: [String],
+  mood: {
+    type: [String],
+    default: 'Just fine'
+  },
   comments: String
 });
 
