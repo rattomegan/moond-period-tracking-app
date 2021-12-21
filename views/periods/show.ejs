@@ -12,6 +12,7 @@
   <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
     <div>day notes:</div><br>
 
+    <label>no flow</label><input type="range" min="0" max="5" name="flow" value="0"><label>it's a bloodbath</label><br>
     <label>no cramps</label><input type="range" min="0" max="5" name="cramps" value="0"><label>major cramps</label><br>
     <label>no back pain</label><input type="range" min="0" max="5" name="backPain" value="0"><label>major back pain</label><br>
     <label>no energy</label><input type="range" min="0" max="5" name="energy" value="0"><label>high energy</label><br>
@@ -27,6 +28,7 @@
 <% } else { %>
   <div>Notes for today:</div>
   <% period.notes.forEach(function(n) { %>
+    <div>flow level: <%= n.flow %></div>
     <div>cramps level: <%= n.cramps %></div>
     <div>back pain level: <%= n.backPain %></div>
     <div>energy level: <%= n.energy %></div>

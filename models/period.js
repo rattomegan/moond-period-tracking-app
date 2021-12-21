@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const noteSchema = new Schema({
+  flow: {
+    type: Number,
+    min: 0,
+    max: 5,
+  },
   cramps: {
     type: Number,
     min: 0,
     max: 5,
-    default: 5
   },
   backPain: {
     type: Number,
