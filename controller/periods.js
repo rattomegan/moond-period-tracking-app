@@ -73,7 +73,7 @@ function create(req, res ) {
   period.save(function(err) {
     if (err) return res.redirect('/periods/new');
     console.log(period);
-    res.redirect('/');
+    res.redirect('/periods');
   });
 };
 

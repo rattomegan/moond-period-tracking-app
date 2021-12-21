@@ -276,7 +276,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /* ----styling for calendar symbols */
-.bleeding {
+.Bleeding {
   height: 15px;
   width: 15px;
   background-color: tomato;
