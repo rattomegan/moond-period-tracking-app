@@ -7,13 +7,13 @@ const noteSchema = new Schema({
     min: 0,
     max: 5,
   },
-  energy: {
-    type: Number
-  },
   backPain: {
     type: Number,
     min: 0,
     max: 5,
+  },
+  energy: {
+    type: Number
   },
   appetite: {
     type: Number,

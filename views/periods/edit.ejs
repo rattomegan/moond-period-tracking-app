@@ -7,15 +7,11 @@
 <section id="notes">
   <form id="note-form" action="/notes/<%= note._id %>?_method=PUT" method="POST">
     <div>day notes:</div>
-    <label>cramps:</label>
-    <input type="radio" name="cramps" >0 
-    <input type="radio" name="cramps" value="1">1 
-    <input type="radio" name="cramps" value="2">2 
-    <input type="radio" name="cramps" value="3">3  
-    <input type="radio" name="cramps" value="4">4 
-    <input type="radio" name="cramps" value="5">5 <br>
-    
-    no energy<input type="range" min="0" max="5" name="energy">high energy
+
+    <label>no cramps</label><input type="range" min="0" max="5" name="cramps" value="<%= note.cramps %>"><label>major cramps</label><br>
+    <label>no back pain</label><input type="range" min="0" max="5" name="backPain" value="<%= note.backPain %>"><label>major back pain</label><br>
+    <label>no energy</label><input type="range" min="0" max="5" name="energy" value="<%= note.energy %>"><label>high energy</label><br>
+    <label>no appetite</label><input type="range" min="0" max="5" name="appetite" value="<%= note.appetite %>"><label>insatiable</label>
     <div>mood</div>
     <% moodOptions.forEach(function(m) { %>
       <% if (moodsSelected.includes(m)) { %>
@@ -24,6 +20,7 @@
       <input type="checkbox" name="mood" value="<%= m %>"><%= m %>
       <% } %>
     <% }) %> <br>
+    <textarea name="comments"><%= note.comments %></textarea>
     <input type="submit" value="Save Notes">
   </form>
 

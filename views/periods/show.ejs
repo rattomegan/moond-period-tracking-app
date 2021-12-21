@@ -10,42 +10,27 @@
 <% if (!period.notes.length) { %>
 <section id="notes">
   <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
-    <div>day notes:</div>
-    <label>cramps:</label>
-    <input type="radio" name="cramps" value="0">0 
-    <input type="radio" name="cramps" value="1">1 
-    <input type="radio" name="cramps" value="2">2 
-    <input type="radio" name="cramps" value="3">3  
-    <input type="radio" name="cramps" value="4">4 
-    <input type="radio" name="cramps" value="5">5 <br>
-    
-    no energy<input type="range" min="0" max="5" name="energy">high energy
+    <div>day notes:</div><br>
+
+    <label>no cramps</label><input type="range" min="0" max="5" name="cramps" value="0"><label>major cramps</label><br>
+    <label>no back pain</label><input type="range" min="0" max="5" name="backPain" value="0"><label>major back pain</label><br>
+    <label>no energy</label><input type="range" min="0" max="5" name="energy" value="0"><label>high energy</label><br>
+    <label>no appetite</label><input type="range" min="0" max="5" name="appetite" value="0"><label>insatiable</label>
     <div>mood</div>
     <% moodOptions.forEach(function(m) { %>
       <input type="checkbox" name="mood" value="<%= m %>"><%= m %>
     <% }) %> <br>
-    
-   
-    <!-- <input type="checkbox" name="mood" value="Anxious">Anxious
-    <input type="checkbox" name="mood" value="Nervous">Nervous
-    <input type="checkbox" name="mood" value="Tense">Tense
-    <input type="checkbox" name="mood" value="Depressed">Depressed
-    <input type="checkbox" name="mood" value="Sad">Sad
-    <input type="checkbox" name="mood" value="Lost">Lost
-    <input type="checkbox" name="mood" value="Iritated">Iritated
-    <input type="checkbox" name="mood" value="Happy">Happy
-    <input type="checkbox" name="mood" value="Optimistic">Elated
-    <input type="checkbox" name="mood" value="Pessimistic">Elated
-    <input type="checkbox" name="mood" value="Elated">Elated
-    <input type="checkbox" name="mood" value="I feel nothing.">I feel nothing. <br> -->
+    <label>Anything else to note:</label><br>
     <textarea name="comments"></textarea>
     <input type="submit" value="Save Notes">
   </form>
 <% } else { %>
   <div>Notes for today:</div>
   <% period.notes.forEach(function(n) { %>
-    <div>cramps: <%= n.cramps %></div>
-    <div>energy: <%= n.energy %></div>
+    <div>cramps level: <%= n.cramps %></div>
+    <div>back pain level: <%= n.backPain %></div>
+    <div>energy level: <%= n.energy %></div>
+    <div>appetite level: <%= n.appetite %></div>
     <div>mood: <%= n.mood %></div>
     <div>comments: <%= n.comments %></div>
     <a href="/notes/<%= n._id %>/edit">Edit Notes</a>
