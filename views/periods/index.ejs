@@ -45,8 +45,8 @@
       <% periods.sort((a, b) => a.periodDate - b.periodDate); %>
       <% periods.forEach(function(p) { %>
       <tr>
-        <td><%= p.phase %></td>
         <td><%= p.periodDate.toLocaleDateString('en-US', {timeZone: 'UTC'}) %></td>
+        <td><%= p.phase %></td>
         <td><a href="/periods/<%= p._id %>">Show</a></td>
         <form action="/periods/<%= p._id %>?_method=DELETE" method="POST">
           <td><input type="submit" value="Delete"></td>
