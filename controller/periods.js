@@ -53,8 +53,7 @@ async function getCalendar(req, res) {
       $lt: new Date(year, month - 1, daysInMonth),
     },
   });
-  console.log(paddingDays, daysInMonth, monthName, month)
-  res.render('calendar', {periods, monthName, month, year, firstDayOfMonth, daysInMonth, paddingDays});
+  res.render('periods/index', {periods, monthName, month, year, firstDayOfMonth, daysInMonth, paddingDays});
 }
 
 function index(req, res) {

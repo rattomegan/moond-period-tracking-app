@@ -1,43 +1,66 @@
 <%- include('../partials/header') %>
+<div id="calendar-container">
+  <div id="container">
+    <div id="header">       
+        <% if (month === 1) { %>
+          <a href="/periods/<%= 12 %>/<%= year - 1 %>"><button id="back-button">Back</button></a>
+        <% } else { %>
+          <a href="/periods/<%= month - 1 %>/<%= year %>"><button id="back-button">Back</button></a>
+        <% } %>
 
+        <div id="month-display"><%= monthName %> - <%= year %></div>
+       
+        <% if (month === 12) { %>
+          <a href="/periods/<%= 1 %>/<%= year + 1 %>"><button id="back-button">Next</button></a>
+        <% } else { %>
+          <a href="/periods/<%= month + 1 %>/<%= year %>"><button id="back-button">Next</button></a>
+        <% } %>
+    </div>
 
-<div id="container">
-  <div id="header">
-    <div id="month-display"></div>
-    <div>
-      <button id="back-button">Back</button>  
-      <button id="next-button">Next</button>  
+    <div id="weekdays">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thur</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+    <div id="calendar">
+      <% for(let i=0; i < paddingDays; i++) { %>
+        <div class="padding"></div>
+      <% }; %>
+      <!-- I cut ou the padding days from this for loop "+ paddingDays"-->
+      <% for(let i = 1; i <= daysInMonth ; i++) { %>
+        <% let p = periods.find(p => p.periodDate.getDate() === i) %>
+        <% if (p) { %>
+          <div class="day">
+            <%= i %>
+            <a href="/periods/<%= p._id %>">
+              <%= p.phase %> <div class="bleeding"></div>  
+            </a>
+            </div>
+        <% } else { %>
+          <div class="day">
+            <%= i %>
+          </div>
+        <% } %>
+      <% }; %>
     </div>
   </div>
-
-  <div id="weekdays">
-    <div>S</div>
-    <div>M</div>
-    <div>T</div>
-    <div>W</div>
-    <div>T</div>
-    <div>F</div>
-    <div>S</div>
-  </div>
-  <div id="calendar"></div>
 </div>
-
 <div id="newEventModal">
 
 </div>
 
 <div id="modalBackDrop"></div>
-
-
-
 <a href="/periods/new">Add Event</a>
-
 <section class="period-table">
   <table>
-    <h1>Periods</h1>
+    <h1><%= monthName %> Overview</h1>
     <tr>
-      <th>Phase</th>
       <th>Date</th>
+      <th>Phase</th>
       <th></th>
       <th></th>
     </tr>
@@ -51,7 +74,6 @@
         <form action="/periods/<%= p._id %>?_method=DELETE" method="POST">
           <td><input type="submit" value="Delete"></td>
         </form>
-
       </tr>
       <% }) %>
 
@@ -59,9 +81,6 @@
   </table>
 
 </section>
-
-
-
 
 
 <%- include('../partials/footer') %>

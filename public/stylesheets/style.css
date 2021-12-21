@@ -275,3 +275,10 @@ input[type=range]:focus::-ms-fill-upper {
   background: #FFFFFF;
 }
 
+/* ----styling for calendar symbols */
+.bleeding {
+  height: 15px;
+  width: 15px;
+  background-color: tomato;
+  border-radius: 50%;
+}
