@@ -6,7 +6,7 @@
 
 <section id="notes">
   <form id="note-form" action="/notes/<%= note._id %>?_method=PUT" method="POST">
-    <div>day notes:</div>
+    <div>Notes for <%= period.periodDate.toLocaleDateString('en-US', {timeZone: 'UTC'}) %>:</div>
     <label>no flow</label><input type="range" min="0" max="5" name="flow" value="<%= note.flow %>"><label>it's a bloodbath</label><br>
     <label>no cramps</label><input type="range" min="0" max="5" name="cramps" value="<%= note.cramps %>"><label>major cramps</label><br>
     <label>no back pain</label><input type="range" min="0" max="5" name="backPain" value="<%= note.backPain %>"><label>major back pain</label><br>

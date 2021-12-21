@@ -45,6 +45,7 @@ const periodSchema  = new Schema({
     type: Date,
     default: new Date()
   }, 
+
   notes: [noteSchema]
 })
 
