@@ -31,12 +31,20 @@
     <div>back pain level: <%= n.backPain %></div>
     <div>energy level: <%= n.energy %></div>
     <div>appetite level: <%= n.appetite %></div>
-    <div>mood: <%= n.mood %></div>
+    <!-- <div>mood: <%= n.mood.values() %></div> -->
+    <div>mood: <br> 
+    <% n.mood.map(m => { %>
+       <%= m %> <br>
+    <% }); %>
+    </div>
     <div>comments: <%= n.comments %></div>
     <a href="/notes/<%= n._id %>/edit">Edit Notes</a>
-    <% }) %>
-<% } %>
+    <% }); %>
+<% }; %>
 </section>
+<form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
+  <td><input type="submit" value="Delete"></td>
+</form>
 
 
 <%- include('../partials/footer') %>
