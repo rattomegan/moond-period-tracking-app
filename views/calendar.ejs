@@ -1,0 +1,83 @@
+<%- include('./partials/header') %>
+
+<div id="container">
+  <div id="header">
+    <div id="month-display"><%= monthName %> - <%= year %></div>
+    <div>
+      <% if (month === 1) { %>
+        <a href="/periods/<%= 12 %>/<%= year - 1 %>"><button id="back-button">Back</button></a>
+      <% } else { %>
+        <a href="/periods/<%= month - 1 %>/<%= year %>"><button id="back-button">Back</button></a>
+      <% } %>
+      <% if (month === 12) { %>
+        <a href="/periods/<%= 1 %>/<%= year + 1 %>"><button id="back-button">Next</button></a>
+      <% } else { %>
+        <a href="/periods/<%= month + 1 %>/<%= year %>"><button id="back-button">Next</button></a>
+      <% } %>
+    </div>
+  </div>
+
+  <div id="weekdays">
+    <div>Sun</div>
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thur</div>
+    <div>Fri</div>
+    <div>Sat</div>
+  </div>
+  <div id="calendar">
+    <% for(let i=0; i < paddingDays; i++) { %>
+      <div class="padding"></div>
+    <% }; %>
+    <% for(let i=1; i <= daysInMonth - paddingDays; i++) { %>
+      <% let p = periods.find(p => p.periodDate.getDate() === i) %>
+      <% if (p) { %>
+        <a href="/periods/<%= p._id %>">
+          <div class="red">
+            <%= i %>
+          </div>
+        </a>
+      <% } else { %>
+        <div class="day">
+          <%= i %>
+        </div>
+      <% } %>
+    <% }; %>
+  </div>
+</div>
+
+<div id="newEventModal">
+
+</div>
+
+<div id="modalBackDrop"></div>
+
+<section class="period-table">
+  <table>
+    <h1>Periods</h1>
+    <tr>
+      <th>Phase</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tbody>
+      <% periods.forEach(function(p) { %>
+      <tr>
+        <td><%= p.phase %></td>
+        <td><%= p.periodDate %></td>
+        <td><a href="/periods/<%= p._id %>">Show</a></td>
+        <form action="/periods/<%= p._id %>?_method=DELETE" method="POST">
+          <td><input type="submit" value="Delete"></td>
+        </form>
+      </tr>
+      <% }) %>
+
+      </tbody>
+  </table>
+
+</section>
+
+
+<%- include('./partials/footer') %>

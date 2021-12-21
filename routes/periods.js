@@ -4,6 +4,7 @@ const periodsCtrl = require('../controller/periods')
 
 // all routes are prefixed with "/periods"
 
+
 // GET "/periods" - Index Route
 router.get('/', periodsCtrl.index);
 
@@ -20,6 +21,10 @@ router.get('/:id', periodsCtrl.show);
 router.delete('/:id', periodsCtrl.delete);
 
 // PUT "/periods/:id" - Edit Route
+
+
+
+router.get('/:month/:year', periodsCtrl.getCalendar)
 
 
 module.exports = router;

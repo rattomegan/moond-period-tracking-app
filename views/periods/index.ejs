@@ -1,25 +1,15 @@
 <%- include('../partials/header') %>
 
 
-<div id="calendar-container">
 <div id="container">
   <div id="header">
-    <button id="back-button">Back</button>  
     <div id="month-display"></div>
-    <button id="next-button">Next</button>  
-    
-    
+    <div>
+      <button id="back-button">Back</button>  
+      <button id="next-button">Next</button>  
+    </div>
   </div>
-  
-  <!-- original html for calendar header -->
-  <!-- <div id="container">
-    <div id="header">
-      <div id="month-display"></div>
-      <div>
-        <button id="back-button">Back</button>  
-        <button id="next-button">Next</button>  
-      </div>
-  </div> -->
+
   <div id="weekdays">
     <div>S</div>
     <div>M</div>
@@ -33,33 +23,15 @@
 </div>
 
 <div id="newEventModal">
-  <form class="new-event-form" action="/periods" method="POST">
-    <label>Period Phase</label>
-    <select name="phase">
-      <option value="Bleeding" selected>Bleeding</option>
-      <option value="Ovulating">Ovulating</option>
-      <option value="Spotting">Spotting</option>
-      <option value="Not Bleeding">Not Bleeding</option>
-    </select>
-    <input type="date" placeholder="dd-mm-yyyy" name="periodDate">
-    <button type="submit" id="saveButton">Save</button>
-    <button type="submit" id="cancelButton">Cancel</button>
-  </form>
-  <!-- <h2>New Event</h2>
 
-  <input id="eventTitleInput" placeholder="Event Title" />
-
-  <button id="saveButton">Save</button>
-  <button id="cancelButton">Cancel</button> -->
 </div>
 
 <div id="modalBackDrop"></div>
-</div>
-
 
 
 
 <a href="/periods/new">Add Event</a>
+
 <section class="period-table">
   <table>
     <h1>Periods</h1>

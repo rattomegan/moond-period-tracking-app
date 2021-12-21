@@ -128,28 +128,36 @@ input[type=range]:focus::-ms-fill-upper {
   justify-content: center;
   background-color: white;
 }
+
 button {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: 1px solid black;
-  border-radius: 10px;
+  width: 75px;
   cursor: pointer;
-  overflow: hidden;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
   outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
 }
+
 #header {
   padding: 10px;
-  font-size: 20px;
+  color: #d36c6c;
+  font-size: 26px;
+  font-family: sans-serif;
   display: flex;
   justify-content: space-between;
 }
-
+#header button {
+  background-color:#92a1d1;
+}
 #container {
-  width: 700px;
+  width: 770px;
 }
 #weekdays {
   width: 100%;
   display: flex;
+  color: #247BA0;
 }
 #weekdays div {
   width: 100px;
@@ -168,15 +176,14 @@ button {
   cursor: pointer;
   box-sizing: border-box;
   background-color: white;
-  /* margin: 5px; */
-  /* outline: 1px solid black; */
-  /* box-shadow: 0px 0px 3px #CBD4C2; */
+  margin: 5px;
+  box-shadow: 0px 0px 3px #CBD4C2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .day:hover {
-  background-color: tomato;
+  background-color: #e8faed;
 }
 
 .day + #currentDay {
@@ -192,8 +199,19 @@ button {
   overflow: hidden;
 }
 .padding {
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0px 0px 3px #CBD4C2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: default !important;
-  background-color: white !important;
+  background-color: #FFFCFF !important;
   box-shadow: none !important;
 }
 #newEventModal, #deleteEventModal {
@@ -240,4 +258,24 @@ button {
   height: 100vh;
   position: absolute;
   background-color: rgba(0,0,0,0.8);
+}
+
+.red {
+  border: 2px red solid;
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0px 0px 3px #CBD4C2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: black;
+}
+
+.red:hover {
+  background-color: #ffd3d3;
 }
