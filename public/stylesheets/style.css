@@ -47,16 +47,34 @@ nav > * {
   padding-left: 5px;
 }
 
-/* -------show page css------------- */
+input[type=submit] {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.period-table a {
+  padding: 10px;
+}
+/* -------show page------------- */
+
+#notes > * {
+ font-size: 15px;
+ padding: 10px;
+}
 
 
 
-
-/* ---------calendar css to test-------- */
+/* ---------calendar-------- */
 #calendar-container {
   display: flex;
   justify-content: center;
   background-color: white;
+  width: 60%;
 }
 
 button {
@@ -75,18 +93,16 @@ button {
   display: flex;
   justify-content: space-around;
 }
-/* #header button {
-  background-color:#92a1d1; */
-/* } */
+
 #container {
-  width: 770px;
+  width: 100%;
 }
 #weekdays {
   width: 100%;
   display: flex;
 }
 #weekdays div {
-  width: 14%;
+  width: 14.24%;
   padding: 10px;
   text-align: left;
 }
@@ -111,21 +127,9 @@ button {
   /* justify-content: space-between; */
 }
 .day:hover {
-  background-color: tomato;
+  background-color: rgba(255, 218, 185, 70%);
 }
 
-/* .day + #currentDay {
-  background-color: tan;
-} */
-/* .event {
-  font-size: 10px;
-  padding: 3px;
-  background-color: #58bae4;
-  color: white;
-  border-radius: 5px;
-  max-height: 55px;
-  overflow: hidden;
-} */
 .padding {
   width: 14.24%;
   padding: 10px;
@@ -145,7 +149,7 @@ button {
   display: none;
   z-index: 20;
   padding: 25px;
-  background-color: #e8f4fa;
+  background-color: peachpuff;
   box-shadow: 0px 0px 3px black;
   border-radius: 5px;
   width: 350px;
@@ -154,28 +158,8 @@ button {
   position: absolute;
   font-family: sans-serif;
 }
-#eventTitleInput {
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 25px;
-  border-radius: 3px;
-  outline: none;
-  border: none;
-  box-shadow: 0px 0px 3px gray;
-}
-#eventTitleInput.error {
-  border: 2px solid red;
-}
-#cancelButton, #deleteButton {
-  background-color: #d36c6c;
-}
-#saveButton, #closeButton {
-  background-color: #92a1d1;
-}
-#eventText {
-  font-size: 14px;
-}
+
+
 #modalBackDrop {
   display: none;
   top: 0px;
@@ -184,27 +168,10 @@ button {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(255, 218, 185, 70%);
 }
 
-/* .red {
-  border: 2px red solid;
-  width: 100px;
-  padding: 10px;
-  height: 100px;
-  cursor: pointer;
-  box-sizing: border-box;
-  background-color: white;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: black;
-} */
 
-/* .red:hover {
-  background-color: #ffd3d3;
-} */
 
 /* slider formatting */
 input[type=range] {
@@ -292,12 +259,4 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #FFFFFF;
-}
-
-/* ----styling for calendar symbols */
-.Bleeding {
-  height: 15px;
-  width: 15px;
-  background-color: tomato;
-  border-radius: 50%;
 }

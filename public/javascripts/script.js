@@ -20,9 +20,9 @@ function openModal(evt) {
     <select name="phase">
       <option value="Bleeding" selected>Bleeding</option>
       <option value="Ovulating">Ovulating</option>
-    </select>
-    <input type="datetime-local" value="${formattedDate}" name="periodDate">
-    <button type="submit" id="saveButton">Save</button>
+    </select><br>
+    <input type="datetime-local" value="${formattedDate}" name="periodDate"><br>
+    <button type="submit" id="saveButton">Save</button><br>
   </form>
   <button id="cancelButton">Cancel</button>
   `;
