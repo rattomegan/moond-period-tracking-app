@@ -57,7 +57,7 @@ async function getCalendar(req, res) {
 }
 
 function index(req, res) {
-  Period.find({}, function(err, periods){
+  Period.find({userId: req.user._id}, function(err, periods){
     console.log(periods)
     res.render('periods/index', { periods });
   })
@@ -86,8 +86,8 @@ function show(req,res) {
 }
 
 function deletePeriod(req, res) {
-  Period.findOneAndRemove( {_id: req.params.id }, function(err, period) {
-    if(!period.userId.equals(req.user._id)) return redirect('/')
+  Period.findOneAndRemove( {_id: req.params.id, userId: req.user._id }, function(err, period) {
+    if(!period.userId.equals(req.user._id)) return redirect('/');
     res.redirect('/periods');
   })
 }

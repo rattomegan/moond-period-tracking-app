@@ -19,7 +19,7 @@ function create(req, res) {
 };
 
 function edit(req, res) {
-  Period.findOne({ 'notes._id': req.params.id}, function(err, period) {
+  Period.findOne({ 'notes._id': req.params.id, 'notes.userId': req.user._id}, function(err, period) {
     let moodsSelected = period.notes[0].mood
     let note = period.notes[0]
     res.render('periods/edit', { period, note, moodsSelected });
@@ -27,9 +27,9 @@ function edit(req, res) {
 };
 
 function update(req, res) {
-  Period.findOne({'notes._id': req.params.id}, function(err, period) {
+  Period.findOne({'notes._id': req.params.id, 'notes.userId': req.user._id}, function(err, period) {
     let noteSubdoc = period.notes.id(req.params.id)
-    if(!noteSubdoc.userId.equals(req.user._id)) return res.redirect('/');
+    if(err || !period) return res.redirect('/');
     noteSubdoc.flow = req.body.flow;
     noteSubdoc.cramps = req.body.cramps;
     noteSubdoc.backPain = req.body.backPain;

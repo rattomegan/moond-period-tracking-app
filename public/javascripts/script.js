@@ -3,17 +3,18 @@ const backDrop = document.getElementById('modalBackDrop');
 const monthDisplay = document.getElementById("month-display");
 
 function openModal(evt) {
-  const month = monthDisplay.textContent.split(' - ')[0];
-  const year = monthDisplay.textContent.split(' - ')[1];
+  const month = monthDisplay.textContent.split(' ')[0];
+  const year = monthDisplay.textContent.split(' ')[1];
   let date = `${month}/${evt.target.textContent}/${year}`;
   let cellDate = new Date(date);
   let formattedDate = `${cellDate.getFullYear()}-${(cellDate.getMonth() + 1)
     .toString()
     .padStart(2, "0")}`;
-  formattedDate += `-${cellDate.getDate().toString().padStart(2, "0")}T${cellDate
-    .toTimeString()
-    .slice(0, 5)}`;
-
+    formattedDate += `-${cellDate.getDate().toString().padStart(2, "0")}T${cellDate
+      .toTimeString()
+      .slice(0, 5)}`;
+      
+  console.log(date)
   const template = `
   <form class="new-event-form" action="/periods" method="POST">
     <label>Period Phase</label>
