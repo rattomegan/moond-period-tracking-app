@@ -8,6 +8,7 @@ module.exports = {
 
 function create(req, res) {
   Period.findById(req.params.id, function(err, period) {
+    req.body.userId = req.user._id;
     period.notes.push(req.body);
     period.save(function(err) {
       console.log(period.notes);
@@ -27,17 +28,15 @@ function edit(req, res) {
 
 function update(req, res) {
   Period.findOne({'notes._id': req.params.id}, function(err, period) {
-    let notesSubdoc = period.notes.id(req.params.id)
-    console.log('notes here', period, req.user._id)
-  
-    console.log(req.body);
-    notesSubdoc.flow = req.body.flow;
-    notesSubdoc.cramps = req.body.cramps;
-    notesSubdoc.backPain = req.body.backPain;
-    notesSubdoc.energy = req.body.energy;
-    notesSubdoc.appetite = req.body.appetite;
-    notesSubdoc.mood = req.body.mood;
-    notesSubdoc.comments = req.body.comments;
+    let noteSubdoc = period.notes.id(req.params.id)
+    if(!noteSubdoc.userId.equals(req.user._id)) return res.redirect('/');
+    noteSubdoc.flow = req.body.flow;
+    noteSubdoc.cramps = req.body.cramps;
+    noteSubdoc.backPain = req.body.backPain;
+    noteSubdoc.energy = req.body.energy;
+    noteSubdoc.appetite = req.body.appetite;
+    noteSubdoc.mood = req.body.mood;
+    noteSubdoc.comments = req.body.comments;
     period.save(function(err) {
       console.log(period.notes)
       res.redirect(`/periods/${ period._id }`)

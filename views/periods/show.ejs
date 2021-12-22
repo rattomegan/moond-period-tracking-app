@@ -25,7 +25,6 @@
       <input type="submit" value="Save Notes">
     </form>
   <% } else { %>
-    <div>Notes for today:</div>
     <% period.notes.forEach(function(n) { %>
       <div>flow level: <%= n.flow %></div>
       <div>cramps level: <%= n.cramps %></div>
@@ -39,13 +38,14 @@
       <% }); %>
       </div>
       <div>comments: <%= n.comments %></div>
-      <a href="/notes/<%= n._id %>/edit">Edit Notes</a>
+      <br><a href="/notes/<%= n._id %>/edit">Edit Notes</a>
       <% }); %>
   <% }; %>
   </div>
-  <form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
-    <td><input type="submit" value="Delete"></td>
-  </form>
+  <!-- no if function here to check for user match since no other user should have access to your page. In the case someone does view your page, authentication will happen in delete controller function -->
+    <form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
+      <td><input type="submit" value="Delete Period and Notes"></td>
+    </form>
 </div>
 
 <%- include('../partials/footer') %>

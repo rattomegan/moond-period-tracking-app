@@ -86,7 +86,8 @@ function show(req,res) {
 }
 
 function deletePeriod(req, res) {
-  Period.findOneAndDelete( {_id: req.params.id }, function(err) {
+  Period.findOneAndRemove( {_id: req.params.id }, function(err, period) {
+    if(!period.userId.equals(req.user._id)) return redirect('/')
     res.redirect('/periods');
   })
 }
