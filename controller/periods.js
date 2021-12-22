@@ -6,7 +6,6 @@ module.exports = {
   create,
   show,
   delete: deletePeriod,
-  getCalendar,
 };
 
 const monthNames = [
@@ -34,7 +33,8 @@ const weekdays = [
   "Saturday",
 ];
 
-async function getCalendar(req, res) {
+
+async function index(req, res) {
   const monthName = monthNames[parseInt(req.params.month) - 1];
   let month = parseInt(req.params.month);
   let year = parseInt(req.params.year);
@@ -47,7 +47,7 @@ async function getCalendar(req, res) {
     day: "numeric",
   });
   const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
-  const periods = await Period.find({
+  const periods = await Period.find({ userId: req.user._id,
     periodDate: {
       $gte: new Date(year, month - 1),
       $lt: new Date(year, month - 1, daysInMonth),
@@ -56,12 +56,36 @@ async function getCalendar(req, res) {
   res.render('periods/index', {periods, monthName, month, year, firstDayOfMonth, daysInMonth, paddingDays});
 }
 
-function index(req, res) {
-  Period.find({userId: req.user._id}, function(err, periods){
-    console.log(periods)
-    res.render('periods/index', { periods });
-  })
-};
+
+// async function getCalendar(req, res) {
+//   const monthName = monthNames[parseInt(req.params.month) - 1];
+//   let month = parseInt(req.params.month);
+//   let year = parseInt(req.params.year);
+//   const firstDayOfMonth = new Date(year, month - 1, 1);
+//   const daysInMonth = new Date(year, month, 0).getDate();
+//   const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
+//     weekday: "long", // The comma and the space provided here will be used later to split the date
+//     year: "numeric",
+//     month: "numeric",
+//     day: "numeric",
+//   });
+//   const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
+//   const periods = await Period.find({ userId: req.user._id,
+//     periodDate: {
+//       $gte: new Date(year, month - 1),
+//       $lt: new Date(year, month - 1, daysInMonth),
+//     },
+//   });
+//   res.render('periods/index', {periods, monthName, month, year, firstDayOfMonth, daysInMonth, paddingDays});
+// }
+
+// function index(req, res) {
+//   // Period.find({userId: req.user._id}, function(err, periods){
+//   //   console.log(userId, req.user._id)
+//   //   console.log(periods)
+//     res.render('periods/index');
+//   // })
+// };
 
 function newPeriod(req, res) {
   res.render('periods/new');
