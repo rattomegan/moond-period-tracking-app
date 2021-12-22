@@ -21,7 +21,6 @@ function edit(req, res) {
   Period.findOne({ 'notes._id': req.params.id}, function(err, period) {
     let moodsSelected = period.notes[0].mood
     let note = period.notes[0]
-    console.log(period.notes[0].mood)
     res.render('periods/edit', { period, note, moodsSelected });
   });
 };
@@ -29,6 +28,8 @@ function edit(req, res) {
 function update(req, res) {
   Period.findOne({'notes._id': req.params.id}, function(err, period) {
     let notesSubdoc = period.notes.id(req.params.id)
+    console.log('notes here', period, req.user._id)
+  
     console.log(req.body);
     notesSubdoc.flow = req.body.flow;
     notesSubdoc.cramps = req.body.cramps;

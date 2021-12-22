@@ -1,52 +1,51 @@
 <%- include('../partials/header') %>
+<div id="show">
+  <section>
+  <a href="/periods">Return to monthly overview</a>
+  <h1><%= period.periodDate.toLocaleDateString() %></h1>
+    <div>Phase: <%= period.phase %></div>
 
-<section>
-<a href="/periods">Return to monthly overview</a>
-<h1><%= period.periodDate.toLocaleDateString('en-US', {timeZone: 'UTC'}) %></h1>
-  <div>Phase: <%= period.phase %></div>
 
+  </section>
+  <% if (!period.notes.length) { %>
+  <section id="notes">
+    <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
 
-</section>
-<% if (!period.notes.length) { %>
-<section id="notes">
-  <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
-    <div>day notes:</div><br>
-
-    <label>no flow</label><input type="range" class="slider" min="0" max="5" name="flow" value="0"><label>it's a bloodbath</label><br>
-    <label>no cramps</label><input type="range" class="slider" min="0" max="5" name="cramps" value="0"><label>major cramps</label><br>
-    <label>no back pain</label><input type="range" class="slider" min="0" max="5" name="backPain" value="0"><label>major back pain</label><br>
-    <label>no energy</label><input type="range" class="slider" min="0" max="5" name="energy" value="0"><label>high energy</label><br>
-    <label>no appetite</label><input type="range" class="slider" min="0" max="5" name="appetite" value="0"><label>insatiable</label>
-    <div>mood</div>
-    <% moodOptions.forEach(function(m) { %>
-      <input type="checkbox" name="mood" value="<%= m %>"><%= m %>
-    <% }) %> <br>
-    <label>Anything else to note:</label><br>
-    <textarea name="comments"></textarea>
-    <input type="submit" value="Save Notes">
+      <label>no flow</label><input type="range" class="slider" min="0" max="5" name="flow" value="0"><label>it's a bloodbath</label><br>
+      <label>no cramps</label><input type="range" class="slider" min="0" max="5" name="cramps" value="0"><label>major cramps</label><br>
+      <label>no back pain</label><input type="range" class="slider" min="0" max="5" name="backPain" value="0"><label>major back pain</label><br>
+      <label>no energy</label><input type="range" class="slider" min="0" max="5" name="energy" value="0"><label>high energy</label><br>
+      <label>no appetite</label><input type="range" class="slider" min="0" max="5" name="appetite" value="0"><label>insatiable</label>
+      <div>mood</div>
+      <% moodOptions.forEach(function(m) { %>
+        <input type="checkbox" name="mood" value="<%= m %>"><%= m %>
+      <% }) %> <br>
+      <label>Anything else to note:</label><br>
+      <textarea name="comments"></textarea>
+      <input type="submit" value="Save Notes">
+    </form>
+  <% } else { %>
+    <div>Notes for today:</div>
+    <% period.notes.forEach(function(n) { %>
+      <div>flow level: <%= n.flow %></div>
+      <div>cramps level: <%= n.cramps %></div>
+      <div>back pain level: <%= n.backPain %></div>
+      <div>energy level: <%= n.energy %></div>
+      <div>appetite level: <%= n.appetite %></div>
+      <!-- <div>mood: <%= n.mood.values() %></div> -->
+      <div>mood: <br> 
+      <% n.mood.map(m => { %>
+        <%= m %> <br>
+      <% }); %>
+      </div>
+      <div>comments: <%= n.comments %></div>
+      <a href="/notes/<%= n._id %>/edit">Edit Notes</a>
+      <% }); %>
+  <% }; %>
+  </section>
+  <form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
+    <td><input type="submit" value="Delete"></td>
   </form>
-<% } else { %>
-  <div>Notes for today:</div>
-  <% period.notes.forEach(function(n) { %>
-    <div>flow level: <%= n.flow %></div>
-    <div>cramps level: <%= n.cramps %></div>
-    <div>back pain level: <%= n.backPain %></div>
-    <div>energy level: <%= n.energy %></div>
-    <div>appetite level: <%= n.appetite %></div>
-    <!-- <div>mood: <%= n.mood.values() %></div> -->
-    <div>mood: <br> 
-    <% n.mood.map(m => { %>
-       <%= m %> <br>
-    <% }); %>
-    </div>
-    <div>comments: <%= n.comments %></div>
-    <a href="/notes/<%= n._id %>/edit">Edit Notes</a>
-    <% }); %>
-<% }; %>
-</section>
-<form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
-  <td><input type="submit" value="Delete"></td>
-</form>
-
+</div>
 
 <%- include('../partials/footer') %>

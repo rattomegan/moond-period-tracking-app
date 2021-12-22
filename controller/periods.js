@@ -69,7 +69,9 @@ function newPeriod(req, res) {
 
 function create(req, res ) {
   if (req.body.periodDate === '') delete req.body.periodDate;
+  req.body.userId = req.user._id;
   const period = new Period(req.body);
+  console.log(req.body);
   period.save(function(err) {
     if (err) return res.redirect('/periods/new');
     console.log(period);
@@ -85,6 +87,6 @@ function show(req,res) {
 
 function deletePeriod(req, res) {
   Period.findOneAndDelete( {_id: req.params.id }, function(err) {
-    res.redirect('/');
+    res.redirect('/periods');
   })
 }
