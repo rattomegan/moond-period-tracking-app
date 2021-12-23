@@ -20,9 +20,9 @@ This is a basic period tracking calendar. You have the option to track cycle pha
 
 ## Getting Started
 
-See app [here](https://moond.herokuapp.com/)
+See app [here](https://moond.herokuapp.com/).
 
-Link to [Trello planning board](https://trello.com/b/i9mPrcy4/moond)
+Link to [Trello planning board](https://trello.com/b/i9mPrcy4/moond).
 
 Login with your google account to access app.
 
