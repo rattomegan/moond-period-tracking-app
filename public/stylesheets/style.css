@@ -11,10 +11,11 @@ body {
   margin: 10px;
 }
 
-.home-page img {
-  border: 1px solid black;
-  vertical-align: top;
+.home-img {
+  /* border: 1px solid black; */
+  width: 90%;
   margin: 10px;
+  text-align: center;
 }
 
 a {
