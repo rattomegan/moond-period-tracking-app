@@ -29,13 +29,13 @@
   <% } else { %>
     <% period.notes.forEach(function(n) { %>
       <br><a href="/notes/<%= n._id %>/edit">Edit Notes</a>
-      <div>flow level: <%= n.flow %></div>
-      <div>cramps level: <%= n.cramps %></div>
-      <div>back pain level: <%= n.backPain %></div>
-      <div>energy level: <%= n.energy %></div>
-      <div>appetite level: <%= n.appetite %></div>
+      <div>Flow Level: <%= n.flow %></div>
+      <div>Cramps Level: <%= n.cramps %></div>
+      <div>Back Pain Level: <%= n.backPain %></div>
+      <div>Energy Level: <%= n.energy %></div>
+      <div>Appetite Level: <%= n.appetite %></div>
       <!-- <div>mood: <%= n.mood.values() %></div> -->
-      <div>mood: <br> 
+      <div>Mood: <br> 
       <% n.mood.map(m => { %>
         <%= m %> <br>
       <% }); %>
