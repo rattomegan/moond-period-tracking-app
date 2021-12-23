@@ -2,8 +2,8 @@
 <div id="show">
   <div>
   <a href="/periods">Return to monthly overview</a>
-  <h1> <%= period.periodDate.toLocaleDateString() %></h1>
-    <div>Phase: <%= period.phase %></div>
+  <h2> <%= period.periodDate.toLocaleDateString() %></h2>
+    <h3><%= period.phase %></h3>
 
 
   </div>
@@ -11,21 +11,24 @@
   <div id="notes">
     <form id="note-form" action="/periods/<%= period._id %>/notes" method="POST">
 
-      <label>no flow</label><input type="range" class="slider" min="0" max="5" name="flow" value="0"><label>it's a bloodbath</label><br>
-      <label>no cramps</label><input type="range" class="slider" min="0" max="5" name="cramps" value="0"><label>major cramps</label><br>
-      <label>no back pain</label><input type="range" class="slider" min="0" max="5" name="backPain" value="0"><label>major back pain</label><br>
-      <label>no energy</label><input type="range" class="slider" min="0" max="5" name="energy" value="0"><label>high energy</label><br>
-      <label>no appetite</label><input type="range" class="slider" min="0" max="5" name="appetite" value="0"><label>insatiable</label>
-      <div>mood</div>
+      <label>No energy</label><input type="range" class="slider" min="0" max="5" name="energy" value="0"><label>High energy.</label><br>
+      <label>No flow</label><input type="range" class="slider" min="0" max="5" name="flow" value="0"><label>It's a bloodbath.</label><br>
+      <label>No back pain</label><input type="range" class="slider" min="0" max="5" name="backPain" value="0"><label>Back. Pain.</label><br>
+      <label>No appetite</label><input type="range" class="slider" min="0" max="5" name="appetite" value="0"><label>Yeah, I'm gonna eat everything.</label> <br>
+      <label>No cramps</label><input type="range" class="slider" min="0" max="5" name="cramps" value="0"><label>What did life feel like before this.</label><br>
+      <div>Mood:</div>
       <% moodOptions.forEach(function(m) { %>
-        <input type="checkbox" name="mood" value="<%= m %>"><%= m %>
+        <input type="checkbox" name="mood" value="<%= m %>"><%= m %> <br>
       <% }) %> <br>
       <label>Anything else to note:</label><br>
       <textarea name="comments"></textarea>
+      <br><br>
       <input type="submit" value="Save Notes">
+
     </form>
   <% } else { %>
     <% period.notes.forEach(function(n) { %>
+      <br><a href="/notes/<%= n._id %>/edit">Edit Notes</a>
       <div>flow level: <%= n.flow %></div>
       <div>cramps level: <%= n.cramps %></div>
       <div>back pain level: <%= n.backPain %></div>
@@ -37,15 +40,15 @@
         <%= m %> <br>
       <% }); %>
       </div>
-      <div>comments: <%= n.comments %></div>
-      <br><a href="/notes/<%= n._id %>/edit">Edit Notes</a>
+      <div> <%= n.comments %></div> <br>
       <% }); %>
+      <form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
+        <td><input type="submit" value="Delete Period and Notes"></td>
+      </form>
   <% }; %>
   </div>
   <!-- no if function here to check for user match since no other user should have access to your page. In the case someone does view your page, authentication will happen in delete controller function -->
-    <form action="/periods/<%= period._id %>?_method=DELETE" method="POST">
-      <td><input type="submit" value="Delete Period and Notes"></td>
-    </form>
+
 </div>
 
 <%- include('../partials/footer') %>

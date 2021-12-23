@@ -7,6 +7,16 @@ body {
   font-family: var(--main-font);
 }
 
+.home-page{
+  margin: 10px;
+}
+
+.home-page img {
+  border: 1px solid black;
+  vertical-align: top;
+  margin: 10px;
+}
+
 a {
   color:#ff6347;
 }
@@ -48,27 +58,25 @@ nav > * {
 }
 
 input[type=submit] {
-  background-color: transparent;
-  background-repeat: no-repeat;
+  background-color: rgb(255, 99, 71);
   border: 1px solid black;
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  color: white;
 }
 
 .period-table a {
   padding: 10px;
 }
 
-img {
-  border: 1px solid black;
-}
+
 /* -------show page------------- */
 
 #notes > * {
- font-size: 15px;
- padding: 10px;
+  padding: 10px;
+  width: 500px;
 }
 
 
