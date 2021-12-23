@@ -34,7 +34,6 @@
       <div>Back Pain Level: <%= n.backPain %></div>
       <div>Energy Level: <%= n.energy %></div>
       <div>Appetite Level: <%= n.appetite %></div>
-      <!-- <div>mood: <%= n.mood.values() %></div> -->
       <div>Mood: <br> 
       <% n.mood.map(m => { %>
         <%= m %> <br>
@@ -47,7 +46,6 @@
       </form>
   <% }; %>
   </div>
-  <!-- no if function here to check for user match since no other user should have access to your page. In the case someone does view your page, authentication will happen in delete controller function -->
 
 </div>
 

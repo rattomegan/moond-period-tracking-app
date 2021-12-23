@@ -4,7 +4,6 @@ const periodsCtrl = require('../controller/periods')
 
 // all routes are prefixed with "/periods"
 
-
 router.get('/', function(req, res, next) {
   const dt = new Date();
   const month = dt.getMonth() + 1;
@@ -27,11 +26,6 @@ router.get('/:id', periodsCtrl.show);
 
 // DELETE "/periods/:id" - Delete Route
 router.delete('/:id', periodsCtrl.delete);
-
-// PUT "/periods/:id" - Edit Route
-
-
-
 
 
 module.exports = router;

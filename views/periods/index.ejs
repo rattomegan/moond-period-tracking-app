@@ -31,7 +31,6 @@
       <% for(let i=0; i < paddingDays; i++) { %>
         <div class="padding"></div>
       <% }; %>
-      <!-- I cut ou the padding days from this for loop "+ paddingDays"-->
       <% for(let i = 1; i <= daysInMonth ; i++) { %>
         <% let p = periods.find(p => p.periodDate.getDate() === i) %>
         <% if (p) { %>
