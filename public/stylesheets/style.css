@@ -167,7 +167,7 @@ font-size: 26px;
 .calendar-container {
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: #fff;
   max-width: 60%;
   min-width: 500px;
 }
@@ -212,6 +212,7 @@ font-size: 26px;
   width: 14.24%;
   padding: 10px;
   text-align: left;
+
 }
 #calendar {
   width: 100%;
@@ -229,6 +230,7 @@ font-size: 26px;
   background-color: white;
   display: flex;
   flex-direction: column;
+  background-color: transparent;
 }
 .day:hover {
   background-color: #e0313125;
@@ -244,14 +246,14 @@ font-size: 26px;
   flex-direction: column;
   justify-content: space-between;
   cursor: default !important;
-  background-color: white !important;
   box-shadow: none !important;
+  background-color: transparent;
 }
 #newEventModal, #deleteEventModal {
   display: none;
   z-index: 20;
   padding: 25px;
-  background-color: #e03131c7;
+  background-color: #e03131;
   box-shadow: 0px 0px 3px black;
   border-radius: 5px;
   width: 350px;
@@ -282,9 +284,16 @@ font-size: 26px;
   margin-bottom: 12px;
   font-size: 24px;
   font-family: 'Bebas Neue', sans-serif;
-  font-weight: 600;
 }
 
+.phase-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none;
+  margin-top: 8px;
+  color: #e03131;
+}
 
 /* slider formatting */
 input[type=range] {
@@ -315,4 +324,9 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -7.5px;
 }
 
-
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+}

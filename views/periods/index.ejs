@@ -36,9 +36,22 @@
         <% if (p) { %>
           <div class="day">
             <%= i %>
-            <a href="/periods/<%= p._id %>">
-              <div><%= p.phase %></div>
-            </a>
+
+              <div class="phase-label">
+                <% if (p.phase === "Bleeding") {%>
+                B
+                <% } %>
+                <% if (p.phase === "Ovulating") {%>
+                  O
+                <% } %>
+                <% if (p.phase === "Spotting") {%>
+                  S
+                <% } %>
+                <% if (p.phase === "Not Bleeding") {%>
+                  NB
+                <% } %>
+              </div>
+
             </div>
         <% } else { %>
           <div class="day">
