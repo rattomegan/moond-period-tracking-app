@@ -17,15 +17,17 @@ function openModal(evt) {
   console.log(date)
   const template = `
   <form class="new-event-form" action="/periods" method="POST">
-    <label>Period Phase</label>
-    <select name="phase">
+    <label class="form-heading">Period Phase</label>
+    <select class="form-select" name="phase">
       <option value="Bleeding" selected>Bleeding</option>
       <option value="Ovulating">Ovulating</option>
+      <option value="Spotting">Spotting</option>
+      <option value="Not Bleeding">Not Bleeding</option>
     </select><br>
-    <input type="datetime-local" value="${formattedDate}" name="periodDate"><br>
-    <button type="submit" id="saveButton">Save</button><br>
+    <input type="datetime-local" value="${formattedDate}" name="periodDate" class="form-date"><br>
+    <button type="submit" class="btn" id="saveButton">Save</button><br>
   </form>
-  <button id="cancelButton">Cancel</button>
+  <button class="btn" id="cancelButton">Cancel</button>
   `;
 
   newEventModal.innerHTML = template;

@@ -91,7 +91,7 @@ nav {
 }
 
 .nav-bar {
-  border-bottom: 5px solid #FF6347;
+  border-bottom: 5px solid #e03131;
 }
 
 .google-logo {
@@ -117,10 +117,10 @@ nav > * {
   color: #ff7f50;
 }
 
-#index {
+.index {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   margin: 5px;
   margin-top: 20px;
 }
@@ -132,10 +132,14 @@ nav > * {
   padding-right: 5px;
   padding-left: 5px;
 }
+.period-table th {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+}
 input[type=submit] {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 18px;
-  background-color: rgb(252, 68, 35);
+  background-color: #e03131ea;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -146,7 +150,10 @@ input[type=submit] {
 
 .month-overview {
 margin-top: 10px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 26px;
 }
+
 
 .period-table a {
   padding: 10px;
@@ -224,7 +231,7 @@ margin-top: 10px;
   flex-direction: column;
 }
 .day:hover {
-  background-color: rgba(255, 218, 185, 70%);
+  background-color: #e0313125;
 }
 .padding {
   width: 14.24%;
@@ -244,12 +251,12 @@ margin-top: 10px;
   display: none;
   z-index: 20;
   padding: 25px;
-  background-color: peachpuff;
+  background-color: #e03131c7;
   box-shadow: 0px 0px 3px black;
   border-radius: 5px;
   width: 350px;
-  top: 100px;
-  left: calc(50% - 175px);
+  top: 200px;
+  left: calc(50% - 275px);
   position: absolute;
   font-family: sans-serif;
 }
@@ -263,6 +270,22 @@ margin-top: 10px;
   position: absolute;
   background-color: rgba(255, 218, 185, 70%);
 }
+
+.new-event-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form-heading {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 600;
+}
+
+
 /* slider formatting */
 input[type=range] {
   height: 10px;
@@ -270,8 +293,8 @@ input[type=range] {
   margin: 10px 0;
   padding-left: 10px;
   padding-right: 10px;
-
 }
+
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8px;
@@ -286,7 +309,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 20px;
   width: 20px;
   border-radius: 20px;
-  background: #FF6347;
+  background: #e03131dc;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -7.5px;
