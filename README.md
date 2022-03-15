@@ -4,8 +4,8 @@ This is a basic period tracking calendar. You have the option to track cycle pha
 
 ## The App
 <img src="https://i.imgur.com/H7L1aLL.png" width="350">
-<img src="https://i.imgur.com/KRmwLic.png" width="200">
-<img src="https://i.imgur.com/iP7oiNf.png" width="200">
+<img src="https://i.imgur.com/KRmwLic.png" width="350">
+<img src="https://i.imgur.com/iP7oiNf.png" width="350">
 
 ## Technologies Used
 
