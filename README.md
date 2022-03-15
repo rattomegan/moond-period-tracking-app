@@ -3,9 +3,9 @@
 This is a basic period tracking calendar. You have the option to track cycle phases and keep notes for each day. The goal was to create a simple and straightforward application that is clean to look at and easy to use. 
 
 ## The App
-<img src="https://i.imgur.com/rIS7lXh.png" width="350">
-<img src="https://i.imgur.com/YEFI1Ja.png" width="200">
-<img src="https://i.imgur.com/Kx6zwAm.png" width="200">
+<img src="https://i.imgur.com/H7L1aLL.png" width="350">
+<img src="https://i.imgur.com/KRmwLic.png" width="200">
+<img src="https://i.imgur.com/iP7oiNf.png" width="200">
 
 ## Technologies Used
 
