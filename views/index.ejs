@@ -1,7 +1,35 @@
-<%- include('./partials/header') %>
-<div class="home-page">
-  <p>Welcome to moond!</p>
-  <p>A simple period tracking calendar that will evenutally incorporate the phases of the moon. For now, it's a basic calendar application to track daily cycle events. Log in to access your personal calendar.</p>
-</div>
-<img class="home-img" src="https://i.imgur.com/GoZVirG.png" alt="screenshot of app main page">
+<!-- <%- include('./partials/header') %> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script defer src="/javascripts/script.js"></script>
+  <title>moond</title>
+</head>
+<body>
+  <nav>
+    <% if (!user) { %>
+      <a href="/auth/google" class="login">LOG IN</a>
+      <div class="google-logo"><img src="https://i.imgur.com/FHjYyi0.png" width="30px"></div>
+      <% } else { %>
+      <a class="push" href="/periods">HOME</a>
+      <a href="/logout">LOG OUT</a>
+    <% } %>
+  </nav>
+
+  <div class="home-page">
+    <h1 class="home-title">Moond</h1>
+    <p class="home-text">The most basic period tracking calendar.</p>
+  </div>
+  <!-- <img class="home-img" src="https://i.imgur.com/GoZVirG.png" alt="screenshot of app main page"> -->
 <%- include('./partials/footer') %>
+
