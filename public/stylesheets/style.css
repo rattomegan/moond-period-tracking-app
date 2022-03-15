@@ -1,10 +1,8 @@
-:root {
-  --main-font: 'Open Sans', sans-serif;
-}
 body {
   padding: 10px;
-  font-size: 14px;
-  font-family: var(--main-font);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   background-color: #fff;
   max-width: 1200px;
 }
@@ -19,6 +17,7 @@ body {
   display: flex;
   margin: 10px;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .home-title {
@@ -27,7 +26,7 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   transition: all .3s;
   margin: 0;
-  padding-right: 18px;
+  padding-right: 30px;
 }
 
 .home-text {
@@ -36,8 +35,34 @@ body {
   padding-top: 20px;
   align-self: flex-end;
   margin: 0;
-  width: 400px;
+  width: 325px;
   transition: all .3s;
+}
+
+.home-text::before,
+.home-text::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home-text::before {
+  /* width: 60%; */
+  /* 60% of parent's width */
+  /* padding-bottom: 60%;
+  background-color: #fdf2e9;
+  z-index: -2; */
+}
+
+.home-text::after {
+  width: 45%;
+  padding-bottom: 45%;
+  background-color: #e0313125;
+  z-index: -1;
 }
 
 .home-text:hover {
@@ -45,7 +70,7 @@ body {
 }
 
 .home-title:hover {
-  color: coral;
+  color: #e03131;
 }
 .home-img {
   width: 90%;
@@ -57,12 +82,13 @@ a {
   transition: all .3s;
 }
 a:hover {
-  color: #ff7f50;
+  color: #e03131;
 }
 nav {
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
+  /* border-bottom: 4px solid #ff7f50; */
 }
 
 .google-logo {
@@ -75,9 +101,19 @@ nav {
 nav > * {
   padding: 5px;
 }
-#name {
-  font-size: 40px;
+.nav-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
 }
+
+.nav-link {
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: #ff7f50;
+}
+
 #index {
   display: flex;
   flex-wrap: wrap;
@@ -94,14 +130,21 @@ nav > * {
   padding-left: 5px;
 }
 input[type=submit] {
-  background-color: rgb(255, 99, 71);
-  border: 1px solid black;
-  border-radius: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  background-color: rgb(252, 68, 35);
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
   overflow: hidden;
   outline: none;
   color: white;
 }
+
+.month-overview {
+margin-top: 10px;
+}
+
 .period-table a {
   padding: 10px;
 }
@@ -111,20 +154,36 @@ input[type=submit] {
   width: 500px;
 }
 /* ---------calendar-------- */
-#calendar-container {
+.calendar-container {
   display: flex;
   justify-content: center;
   background-color: white;
-  width: 60%;
+  max-width: 60%;
+  min-width: 450px;
 }
-button {
-  background-color: transparent;
+
+.month-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+}
+
+.btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-color: #333;
   background-repeat: no-repeat;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 3px;
   cursor: pointer;
   overflow: hidden;
   outline: none;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid transparent;
 }
 #header {
   padding: 10px;

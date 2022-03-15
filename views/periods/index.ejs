@@ -1,20 +1,20 @@
 <%- include('../partials/header') %>
 <div id="index">
-<div id="calendar-container">
+<div class="calendar-container">
   <div id="container">
     <div id="header">       
         <% if (month === 1) { %>
-          <a href="/periods/<%= 12 %>/<%= year - 1 %>"><button id="back-button">Back</button></a>
+          <a href="/periods/<%= 12 %>/<%= year - 1 %>"><button class="btn" id="back-button">Back</button></a>
         <% } else { %>
-          <a href="/periods/<%= month - 1 %>/<%= year %>"><button id="back-button">Back</button></a>
+          <a href="/periods/<%= month - 1 %>/<%= year %>"><button class="btn" id="back-button">Back</button></a>
         <% } %>
 
-        <div id="month-display"><%= monthName %> <%= year %></div>
+        <div class="month-display" id="month-display"><%= monthName %> <%= year %></div>
        
         <% if (month === 12) { %>
-          <a href="/periods/<%= 1 %>/<%= year + 1 %>"><button id="back-button">Next</button></a>
+          <a href="/periods/<%= 1 %>/<%= year + 1 %>"><button class="btn" id="back-button">Next</button></a>
         <% } else { %>
-          <a href="/periods/<%= month + 1 %>/<%= year %>"><button id="back-button">Next</button></a>
+          <a href="/periods/<%= month + 1 %>/<%= year %>"><button class="btn" id="back-button">Next</button></a>
         <% } %>
     </div>
 
@@ -58,7 +58,7 @@
 
 <section class="period-table">
   <table>
-    <h1><%= monthName %> Overview</h1>
+    <h1 class="month-overview"><%= monthName %> Overview</h1>
     <tr>
       <th>Date</th>
       <th>Phase</th>
