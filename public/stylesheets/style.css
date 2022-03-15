@@ -1,9 +1,8 @@
 body {
   padding: 10px;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
   font-family: 'Bebas Neue', sans-serif;
-  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
   max-width: 1200px;
 }
 
@@ -91,6 +90,10 @@ nav {
   /* border-bottom: 4px solid #ff7f50; */
 }
 
+.nav-bar {
+  border-bottom: 5px solid #FF6347;
+}
+
 .google-logo {
   display: flex;
   align-items: center;
@@ -159,7 +162,7 @@ margin-top: 10px;
   justify-content: center;
   background-color: white;
   max-width: 60%;
-  min-width: 450px;
+  min-width: 500px;
 }
 
 .month-display {

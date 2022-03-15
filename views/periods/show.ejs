@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <div id="show">
   <div>
-  <a href="/periods">Return to monthly overview</a>
+  
   <h2> <%= period.periodDate.toLocaleDateString() %></h2>
     <h3><%= period.phase %></h3>
 
@@ -45,6 +45,7 @@
         <td><input type="submit" value="Delete Period and Notes"></td>
       </form>
   <% }; %>
+    <a href="/periods">Return to monthly overview</a>
   </div>
 
 </div>
