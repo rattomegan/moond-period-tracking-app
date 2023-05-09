@@ -21,8 +21,6 @@ This is a basic period tracking calendar. You have the option to track cycle pha
 
 ## Getting Started
 
-See app [here](https://moond.herokuapp.com/).
-
 Link to [Trello planning board](https://trello.com/b/i9mPrcy4/moond).
 
 Log in with your google account to access app. Click on any calendar day to add a phase to that day. Edit notes within phase/date detail.
